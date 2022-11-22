@@ -1,3 +1,4 @@
 import helper
 
-helper.login()
+interface = helper.InstagramWinnerInterface
+interface.login()
