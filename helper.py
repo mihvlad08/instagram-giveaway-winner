@@ -41,6 +41,8 @@ class InstagramWinnerInterface:
             #  One idea would be to wait (N seconds), while the user receives the code, fills it in the form
             #   and the script clicks it itself afterwards
 
+        time.sleep(5)
+
         save_login_info = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div/div/div/div/button')
         save_login_info.click()
 
@@ -52,8 +54,8 @@ class InstagramWinnerInterface:
 
     @staticmethod
     def like_post():
-        like_button = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div[1]/div[1]/article/div/div[2]/div/div[2]/section[1]/span[1]/button')
         time.sleep(5)
+        like_button = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div[1]/div[1]/article/div/div[2]/div/div[2]/section[1]/span[1]/button')
         like_button.click()
 
     @staticmethod
