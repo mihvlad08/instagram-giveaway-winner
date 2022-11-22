@@ -4,14 +4,16 @@ Instagram-Giveaway-Winner is a Python library for automating the processes of jo
 
 ## Installation
 
-To start, use the package manager [pip](https://pip.pypa.io/en/stable/) to install Selenium
+To start, clone the repo and then use the package manager [pip](https://pip.pypa.io/en/stable/) to install Selenium
 ```bash
+git clone https://github.com/mihvlad08/instagram-giveaway-winner
+cd ./instagram-giveaway-winner
 python3 -m pip install selenium
 ```
-And then create a new file in project root, credentials.py where you have to add
+Then, create a new file in project root, credentials.py where you have to add
 2 variables, username and password.
 ```python
-username = 'username here'
+username = 'your username here'
 password = 'your password here'
 ```
 In main.py, set the giveaway post URL and whether or not your account uses

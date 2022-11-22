@@ -4,9 +4,11 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
+import accounts_to_follow
 
 driver = webdriver.Firefox()
 action = ActionChains(driver)
+
 
 class InstagramWinnerInterface:
 
@@ -34,7 +36,10 @@ class InstagramWinnerInterface:
         password_input.send_keys(Keys.ENTER)
 
         if self.twoFA:
-            driver.implicitly_wait(30)
+            time.sleep(30)
+            # TODO: Figure out how to implement inserting the code received through phone/email in a timely manner.
+            #  One idea would be to wait (N seconds), while the user receives the code, fills it in the form
+            #   and the script clicks it itself afterwards
 
         save_login_info = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div/div/div/div/button')
         save_login_info.click()
@@ -42,14 +47,17 @@ class InstagramWinnerInterface:
         turn_on_notifications = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[3]/button[2]')
         turn_on_notifications.click()
 
-    def goToGiveawayPost(self):
+    def go_to_giveaway_post(self):
         driver.get(str(self.giveawayURL))
 
-    def likePost(self):
+    @staticmethod
+    def like_post():
         like_button = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div[1]/div[1]/article/div/div[2]/div/div[2]/section[1]/span[1]/button')
         time.sleep(5)
         like_button.click()
 
-    def commentOnPost(self):
+    @staticmethod
+    def comment_on_post(accounts_array=accounts_to_follow.pair_of_arrays):
         return
+
 
