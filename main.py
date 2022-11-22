@@ -1,5 +1,3 @@
-from selenium import webdriver
-import credentials
+import helper
 
-driver = webdriver.Firefox()
-driver.get("https://google.co.in")
+helper.login()
