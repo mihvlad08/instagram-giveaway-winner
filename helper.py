@@ -15,8 +15,10 @@ class InstagramWinnerInterface:
 
     def login(self):
         driver.get("https://www.instagram.com/")
-        driver.add_cookie({"name": "csrftoken", "value": "3T5swQiwY5ndMhhb8qbuNLybdxvfmzGg"})
         driver.maximize_window()
+
+        cookie = driver.get_cookie('csrftoken')
+        driver.add_cookie({"name": "csrftoken", "value": str(cookie)})
 
         accept_cookies = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/button[1]')
         accept_cookies.click()
